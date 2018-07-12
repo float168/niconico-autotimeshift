@@ -10,7 +10,6 @@ module Nans
       search: 'http://api.search.nicovideo.jp/api/',
       reserve: 'http://live.nicovideo.jp/api/watchingreservation',
       list: 'http://live.nicovideo.jp/my',
-      content: 'https://live.nicovideo.jp/gate'
     }
 
     attr_reader :agent, :logined
@@ -32,10 +31,6 @@ module Nans
     def logout
       Ayaneru.niconico.agent.cookie_jar.clear!
       @logined = false
-    end
-
-    def self.buildContentURL(lv)
-      URL[:content] + '/' + lv
     end
   end
   class LoginError < StandardError; end

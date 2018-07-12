@@ -9,11 +9,14 @@ tags.each do |tag|
       if reserved
         payload = {text: "タイムシフト予約完了",
           attachments: [
-            {text: Nans::Niconico.buildContentURL(r.contentId)}
+            {text: r.url}
           ]
         }
       else
-        payload = {text: "タイムシフト予約に失敗しました"}
+        payload = {text: "タイムシフト予約に失敗しました",
+          attachments: [
+            {text: r.url}
+          ]
       end
       begin
         Nans.slack.post(payload)
