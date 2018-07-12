@@ -1,1 +1,1 @@
-web: bundle exec ruby reserve.rb
+app: bundle exec ruby reserve.rb
