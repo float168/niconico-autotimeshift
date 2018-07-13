@@ -17,6 +17,7 @@ tags.each do |tag|
           attachments: [
             {text: r.url}
           ]
+        }
       end
       begin
         Nans.slack.post(payload)
