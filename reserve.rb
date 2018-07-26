@@ -7,16 +7,15 @@ tags.each do |tag|
     begin
       reserved = Nans.niconico.reserve(r.contentId)
       if reserved
-        payload = {text: "タイムシフト予約完了",
-          attachments: [
-            {text: r.url}
-          ]
+        payload = {
+          text: "タイムシフト予約完了: #{r.url}",
+          unfurl_links: true
         }
       else
-        payload = {text: "タイムシフト予約に失敗しました",
-          attachments: [
-            {text: r.url}
-          ]
+        payload = {
+          text: "タイムシフト予約に失敗しました: #{r.url}",
+          unfurl_links: true
+        }
       end
       begin
         Nans.slack.post(payload)
